@@ -1,9 +1,11 @@
 subprojects{
+    apply plugin: "java"
     apply plugin: "java-library"
-
-    sourceSets.main.java.srcDirs = ["src"]
     
     dependencies{
         compileOnly aproj(":arc-core")
     }
+
+    sourceSets.main.java.srcDirs = ["src"]
+    sourceSets.main.resources.srcDirs = ["res"]
 }
