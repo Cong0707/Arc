@@ -5,6 +5,7 @@ import arc.Core
 import arc.Core.gl20
 import arc.Graphics
 import arc.Graphics.Cursor.SystemCursor
+import arc.backend.lwjgl3.vulkan.Vulkan
 import arc.graphics.GL20
 import arc.graphics.GL30
 import arc.graphics.Pixmap
@@ -19,6 +20,7 @@ import org.lwjgl.BufferUtils
 import org.lwjgl.glfw.GLFW
 import org.lwjgl.glfw.GLFWFramebufferSizeCallback
 import org.lwjgl.opengl.GL11
+import org.lwjgl.vulkan.*
 import java.nio.IntBuffer
 import kotlin.concurrent.Volatile
 
@@ -102,6 +104,9 @@ class Lwjgl3Graphics(val window: Lwjgl3Window) : Graphics(), Disposable {
         updateFramebufferInfo()
         initiateGL()
         Log.info("Choosing GL Version @", Lwjgl3Application.glVersion!!.debugVersionString)
+
+        //val vulkanInstance: VkInstance = Vulkan(window.windowHandle).vulkanInstance
+
         GLFW.glfwSetFramebufferSizeCallback(window.windowHandle, resizeCallback)
     }
 
